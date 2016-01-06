@@ -1,0 +1,67 @@
+#ifndef Solver_h
+#define Solver_h
+#include Point.h
+#include Frame.h
+class Solver
+{
+	private : 
+	Point  p1;//用于存放工件坐标系下的坐标值 
+	Point  p2;//用于存放世界坐标系下的坐标值 
+	TaskFrame T1;
+	double ang1,ang2;
+	public :
+		void setpt(Point  p, TaskFrame T)
+		{
+			p1=p;
+			T1=T;
+		}
+		void trans()//坐标变换函数 
+		{
+			double x1,y1,ang;
+			x1=T1.GetX();
+			y1=T1.GetY();
+			ang=T1.GetDeg();
+			//冯一飞同学在下面写变换矩阵的求解及世界坐标系下坐标值求解的实现，并幅值给P2,其中 x1 y1 ang 是工件坐标系相对于世界坐标系的变换量 
+			
+		}
+		void antisolve()//反解函数由冯一飞同学实现 
+		{
+			
+		}
+		Point getp2() 
+		{
+			return p2;
+		}
+		double getang1()
+		{
+			return ang1;
+		}
+			double getang2()
+		{
+			return ang2;
+		}
+};
+#endif
+#ifndef Point_h
+#define Point_h
+class Point
+{
+	private :
+		double px,py;
+	public :
+	
+		double getpx()
+		{
+			return px;
+		}
+		double getpy()
+		{
+			return py;
+		}
+		void setp(double x, double y)
+		{
+			px=x;
+			py=y;
+		}
+};
+#endif
