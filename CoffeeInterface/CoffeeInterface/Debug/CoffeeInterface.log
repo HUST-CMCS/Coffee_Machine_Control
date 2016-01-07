@@ -1,0 +1,20 @@
+﻿生成启动时间为 2016/1/6 11:08:17。
+     1>项目“C:\Users\云昆\Desktop\CoffeeInterface\CoffeeInterface\CoffeeInterface\CoffeeInterface.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         F:\VisualStudio\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\CoffeeInterface.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CoffeeInterface.cpp CoffeeInterfaceDlg.cpp
+         正在跳过...(未检测到相关更改)
+         CoffeeInterfaceDlg.cpp
+         CoffeeInterface.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /l"0x0804" /IDebug\ /nologo /fo"Debug\CoffeeInterface.res" CoffeeInterface.rc 
+       Link:
+         F:\VisualStudio\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\云昆\Desktop\CoffeeInterface\CoffeeInterface\Debug\CoffeeInterface.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:F:\VisualStudio\VC\Include\Manifest\dpiaware.manifest /DEBUG /PDB:"C:\Users\云昆\Desktop\CoffeeInterface\CoffeeInterface\Debug\CoffeeInterface.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\云昆\Desktop\CoffeeInterface\CoffeeInterface\Debug\CoffeeInterface.lib" /MACHINE:X86 Debug\CoffeeInterface.res
+         Debug\CoffeeInterface.obj
+         Debug\CoffeeInterfaceDlg.obj
+         Debug\stdafx.obj
+         CoffeeInterface.vcxproj -> C:\Users\云昆\Desktop\CoffeeInterface\CoffeeInterface\Debug\CoffeeInterface.exe
+     1>已完成生成项目“C:\Users\云昆\Desktop\CoffeeInterface\CoffeeInterface\CoffeeInterface\CoffeeInterface.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.07
