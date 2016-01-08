@@ -3,17 +3,13 @@
 
 enum CoffeeKind
 {
-Espresso=0,
-Machiatto=1,
-Americano=2,
-Flatwhite=3,
-CaffeLatte=4,
-ConPanna=5,
-Cappuccino=6,
-CafeMocha=7,
-Viennese=8,
-CaramelMacchiato=9,
-IrishCoffee=10
+Mocha=0,//摩卡
+Latte=1,//拿铁
+Cappuccino=2,//卡布基诺
+Americano=3,//美式咖啡
+Espresso=4,//意式咖啡
+Milkcoffee=5,//奶咖
+Foam=6//奶沫
 };
 
 enum BottleSize
@@ -30,6 +26,7 @@ private:
 	BottleSize BS;
 	int BottleNum;
 	bool Suger;
+	int Concentration;
 public:
 	Coffee();
 	void SetCoffeeKind(CoffeeKind a);
@@ -40,6 +37,67 @@ public:
 	int GetBottleNum();
 	void SetSuger(bool a);
 	bool GetSuger();
+	void SetConcentration(int a);
+	int GetConcentration();
 };
+
+Coffee::Coffee()
+{
+    CK=Mocha;
+    BS=Small;
+    BottleNum=1;
+    Suger=false;
+    Concentration=30;
+}
+
+int Coffee::GetBottleNum()
+{
+    return BottleNum;
+}
+
+BottleSize Coffee::GetBottleSize()
+{
+    return BS;
+}
+
+CoffeeKind Coffee::GetCoffeeKind()
+{
+    return CK;
+}
+
+bool Coffee::GetSuger()
+{
+    return Suger;
+}
+
+int Coffee::GetConcentration()
+{
+    return Concentration;
+}
+
+void Coffee::SetBottleNum(int a)
+{
+    BottleNum=a;
+}
+
+void Coffee::SetBottleSize(BottleSize a)
+{
+    BS=a;
+}
+
+void Coffee::SetCoffeeKind(CoffeeKind a)
+{
+    CK=a;
+}
+
+void Coffee::SetSuger(bool a)
+{
+    Suger=a;
+}
+
+void Coffee::SetConcentration(int a)
+{
+    Concentration=a;
+}
 
 #endif // COFFEE_H
