@@ -24,21 +24,21 @@ class Coffee
 private:
 	CoffeeKind CK;
 	BottleSize BS;
-	int BottleNum;
+//	int BottleNum;
 	bool Suger;
-	int Concentration;
+//	int Concentration;
 public:
 	Coffee();
 	void SetCoffeeKind(CoffeeKind a);
 	CoffeeKind GetCoffeeKind();
 	void SetBottleSize(BottleSize a);
 	BottleSize GetBottleSize();
-	void SetBottleNum(int a);
-	int GetBottleNum();
+//	void SetBottleNum(int a);
+//	int GetBottleNum();
 	void SetSuger(bool a);
 	bool GetSuger();
-	void SetConcentration(int a);
-	int GetConcentration();
+//	void SetConcentration(int a);
+//	int GetConcentration();
 };
 
 Coffee::Coffee()
@@ -49,12 +49,12 @@ Coffee::Coffee()
     Suger=false;
     Concentration=30;
 }
-
+/*
 int Coffee::GetBottleNum()
 {
     return BottleNum;
 }
-
+*/
 BottleSize Coffee::GetBottleSize()
 {
     return BS;
@@ -69,7 +69,7 @@ bool Coffee::GetSuger()
 {
     return Suger;
 }
-
+/*
 int Coffee::GetConcentration()
 {
     return Concentration;
@@ -79,7 +79,7 @@ void Coffee::SetBottleNum(int a)
 {
     BottleNum=a;
 }
-
+*/
 void Coffee::SetBottleSize(BottleSize a)
 {
     BS=a;
@@ -94,10 +94,10 @@ void Coffee::SetSuger(bool a)
 {
     Suger=a;
 }
-
+/*
 void Coffee::SetConcentration(int a)
 {
     Concentration=a;
 }
-
+*/
 #endif // COFFEE_H
