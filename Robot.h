@@ -32,9 +32,11 @@ void Robot::GetAngle(int i,double* Angle)
     Solver sol;
     sol.setpt(setcof.getpcoffee()[i]);
     if(0==i)
-        sol.setpt(WaterFrame);
+ //       sol.setpt(WaterFrame);
+		sol.setpt(CupFrame);
     else if(1==i)
-        sol.setpt(CupFrame);
+ //       sol.setpt(CupFrame);
+		sol.setpt(WaterFrame);
     else
         sol.setpt(MaterialFrame);
     sol.trans();
