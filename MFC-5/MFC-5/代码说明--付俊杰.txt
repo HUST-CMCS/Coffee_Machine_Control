@@ -1,0 +1,7 @@
+1. 下拉控件初始化函数改动：定义下拉文本 即咖啡种类
+在BOOL CMFC5Dlg::OnInitDialog() 函数中改动
+
+2. 具体图片显示与下拉栏对应设置 在change函数 即事件函数中
+void CMFC5Dlg::OnCbnSelchangePicCombo() 中
+
+3.索引是int型返回变量  从0开始
