@@ -191,12 +191,34 @@ void CMFCApplication1Dlg::OnBnClickedPay()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	//获取咖啡名称
+	UpdateData();                                  //获取用户数据
 	int index;
+	CString suger,name,type;
 	index=((CComboBox*)GetDlgItem(IDC_NAME))->GetCurSel();
-	((CComboBox*)GetDlgItem(IDC_NAME))->GetLBText(index,m_name);
+	((CComboBox*)GetDlgItem(IDC_NAME))->GetLBText(index,name);
+	double price=0;
+	switch(index){                                 //根据咖啡种类判断价格
+	case 0:case 3: price=7.5;break;
+	case 1:case 2: price=10;break;
+	case 4:case 5: price=12;break;
+	case 6: price=15;break;
+	}
+	switch(m_type){                                 //根据咖啡种类判断价格
+	case 0: price+=0;type="小杯";break;
+	case 1: price+=3;type="中杯";break;
+	case 2: price+=5;type="大杯";break;
+	}
+	if(m_suger){               //加糖加价
+		price+=1.5;
+		suger="是"; 
+	}
+	else suger="否";
+
+	m_spay=price*m_num;                            //计算价格                        
+	UpdateData(false);                             //将价格显示
 
 	//显示账单的格式化
-	m_cbook.m_str.Format("咖啡种类：%s\n",m_name);
+	m_cbook.m_str.Format("咖啡种类：%s\n\n是否加糖：%s\n\n杯子大小：%s\n\n数量：%d\n\n应付金额：%0.2f",name,suger,type,m_num,m_spay);
 	m_cbook.DoModal();
 
 }
@@ -207,13 +229,33 @@ void CMFCApplication1Dlg::OnBnClickedCpay()
 	// TODO: 在此添加控件通知处理程序代码
 
 	//订单金额确认
+	UpdateData();                                  //获取用户数据
+	int index;
+	double price=0;
+	index=((CComboBox*)GetDlgItem(IDC_NAME))->GetCurSel();
+	switch(index){                                 //根据咖啡种类判断价格
+	case 0:case 3: price=7.5;break;
+	case 1:case 2: price=10;break;
+	case 4:case 5: price=12;break;
+	case 6: price=15;break;
+	}
+	switch(m_type){                                 //根据咖啡种类判断价格
+	case 0: price+=0;break;
+	case 1: price+=3;break;
+	case 2: price+=5;break;
+	}
+	if(m_suger) price+=1.5;                        //加糖加价                             
+	m_spay=price*m_num;                            //计算价格
+	m_fpay=50;                                     //由于没有付款程序，此处设置一个实付款值                         
+	UpdateData(false);                             //将价格显示
+	m_get=m_fpay-m_spay; 
 
-
+		//如果未付款，提示“请付款”
+	if(m_fpay==0) MessageBox("请付款");
 		//如果付款成功，开始制作咖啡
-	if(m_fpay>=m_spay){
-
-		int index;
-	    index=((CComboBox*)GetDlgItem(IDC_NAME))->GetCurSel();
+	else if(m_get>=0){
+		UpdateData(false);                             //显示找零
+		
 //		CString str;
 //		((CComboBox*)GetDlgItem(IDC_NAME))->GetLBText(index,str);
 		Coffee coffee(CoffeeKind(index),BottleSize(m_type),m_suger);
@@ -224,8 +266,8 @@ void CMFCApplication1Dlg::OnBnClickedCpay()
 //		str.Format("Number:%d",n);
 //		MessageBox(str); 
 
-		UpdateData();                                  //获取对话框数据杯数m_num
-		for(int j=0;j<=m_num;j++){                     //利用杯数确定循环次数
+		
+		for(int j=1;j<=m_num;j++){                     //利用杯数确定循环次数
 		//利用for循环调用Robot实现控制运动
 		for(int i=0;i<=n;i++){
 			m_robot.GetAngle(i,Ang);
@@ -235,16 +277,33 @@ void CMFCApplication1Dlg::OnBnClickedCpay()
 			//延时，用于各个动作
 				//图片更换与提示语切换
 			if(i==0){
+		/*************************************************************************/
+				//付俊杰添加加水图片指令
+
+
+		/*************************************************************************/
 				m_show="正在取杯子...";
 				UpdateData(FALSE);                      //将m_show上传至对话框
 				Sleep(1000);
 			}
 			if(i==1){
+		/*************************************************************************/
+				//付俊杰添加取杯子图片指令
+
+
+		/*************************************************************************/
 				m_show="正在加水...";
 				UpdateData(FALSE);
 				Sleep(5000);
 			}
 			if(i>1&&i<=n){
+				if(i=2){
+		/*************************************************************************/
+				//付俊杰添加添加原料图片指令
+
+
+		/*************************************************************************/
+				}
 				m_show="正在加原料...";
 				UpdateData(FALSE);
 				Sleep(1000);
@@ -255,15 +314,15 @@ void CMFCApplication1Dlg::OnBnClickedCpay()
 		m_show="咖啡制作成功,请取走！";
 		UpdateData(FALSE);
 		Sleep(8000);
-		m_show="";
+		m_show="";                                  //清零
+		m_spay=m_fpay=m_get=0;
 		UpdateData(FALSE);
 	}
 }
-		//如果未付款，提示“请付款”
-//	else if(m_fpay==0) MessageBox("请付款");
+		
 
 	    //如果金额不足，提示“余额不足”
-	else if(m_fpay<=m_spay) MessageBox("余额不足");
+	else if(m_get<0) MessageBox("余额不足");
 }
 
 
