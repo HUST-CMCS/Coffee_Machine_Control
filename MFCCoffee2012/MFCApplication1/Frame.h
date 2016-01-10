@@ -16,12 +16,32 @@ class TaskFrame{
 		double y;
 		double deg;
 	public:
-		TaskFrame(double a=0,double b=0,double d=0);
-		void SetTaskFrame(double a,double b,double d);
-		double GetX();
-		double GetY();
-		double GetDeg();
+		TaskFrame(double a=0,double b=0,double d=0)
+		{
+			x=a;
+			y=b;
+			deg=d;
+		}
+		void SetTaskFrame(double a,double b,double d)
+		{
+			x=a;
+			y=b;
+			deg=d;
+		}
+		double GetX()
+		{
+			return x;
+		}
+		double GetY()
+		{
+			return y;
+		}
+		double GetDeg()
+		{
+			return deg;
+		}
 };
+/*
 TaskFrame::TaskFrame(double a,double b,double d){
 	x=a;
 	y=b;
@@ -41,5 +61,5 @@ double TaskFrame::GetY(){
 double TaskFrame::GetDeg(){
 	return deg;
 }
-
+*/
 #endif

@@ -5,6 +5,7 @@
 #pragma once
 
 #include "CoffeeBook.h"
+#include "Robot.h"
 
 // CMFCApplication1Dlg ¶Ô»°¿ò
 class CMFCApplication1Dlg : public CDialogEx
@@ -39,9 +40,12 @@ private:
 	int m_type;
 	CoffeeBook m_cbook;
 	CString m_name;
+	Robot m_robot;
 	afx_msg void OnBnClickedPay();
 public:
 	
 	afx_msg void OnBnClickedCpay();
 
+//	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	CString m_show;
 };
